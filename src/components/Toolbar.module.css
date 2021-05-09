@@ -1,0 +1,51 @@
+.toolbar {
+  --toolbar-background: #D3D3D3;
+  width: 20vw;
+  min-width: 200px;
+  padding: 20px 10px 20px 10px;
+  background-color: var(--toolbar-background);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  margin: 0;
+}
+
+.toolbar-section {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tools {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+}
+
+.tools > * {
+  margin-bottom: 10px;
+}
+
+.tool-button {
+  padding: 5px;
+  border-radius: 5px;
+  border-width: 2px;
+  background-color: var(--toolbar-background);
+}
+
+.tool-button:disabled {
+  border: 2px solid #FFFFFF;
+  background-color: #FFFFFF;
+}
+
+.dimension-selector {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,48 @@
+.canvas {
+  width: 100%;
+  height: 100%;
+  background-color: #F5F5F5;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 0;
+}
+
+.row {
+  --inner-border-color: #C0C0C0;
+  --outer-border-color: #000000;
+}
+
+.cell {
+  padding: 0;
+  display: inline-block;
+  box-sizing: border-box;
+  border: 1px solid var(--inner-border-color);
+}
+
+/* Avoid double borders */
+.cell:not(:last-child) {
+  border-right: none;
+}
+
+.row:not(:last-child) .cell {
+  border-bottom: none;
+}
+
+/* Make the outermost border black */
+.row:first-child .cell {
+  border-top-color: var(--outer-border-color);
+}
+
+.cell:last-child {
+  border-right-color: var(--outer-border-color);
+}
+
+.row:last-child .cell {
+  border-bottom-color: var(--outer-border-color);
+}
+
+.cell:first-child {
+  border-left-color: var(--outer-border-color);
+}
