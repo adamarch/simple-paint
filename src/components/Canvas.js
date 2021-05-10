@@ -1,3 +1,4 @@
+import _                      from 'lodash';
 import { useRef, useEffect }  from 'react';
 import { Cell }               from './Cell';
 import styles                 from './Canvas.module.css';
@@ -34,7 +35,7 @@ export function Canvas() {
       // Set initial dimensions, to replace the store's default values
       handleResize();
       // Also set dimensions whenever the window resizes
-      window.addEventListener('resize', handleResize);
+      window.addEventListener('resize', _.debounce(handleResize, 500));
     }
   }, [rows, cols, height, width, dispatch]);
 
