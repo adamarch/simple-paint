@@ -6,7 +6,7 @@ const DEFAULT_COLS = 10;
 
 export const TOOLS = {
   PENCIL: 'pencil',
-  FILL: 'fill',
+  FLOODFILL: 'flood fill',
 };
 
 const generateEmptyCanvas = (rows, cols) => {
@@ -51,8 +51,9 @@ export const paintSlice = createSlice({
         case TOOLS.PENCIL:
           canvas[row][col] = brushColor;
           break;
-        case TOOLS.FILL:
-          // Memory-friendly non-recursive implementation of the flood fill algorithm
+        case TOOLS.FLOODFILL:
+          // Memory-friendly non-recursive implementation of the flood fill algorithm:
+          // https://en.wikipedia.org/wiki/Flood_fill
           floodFill({
             getter: (r, c) => canvas[r][c],
             seed: [row, col],

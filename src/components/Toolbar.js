@@ -43,8 +43,8 @@ export function Toolbar() {
   const dispatch = useDispatch();
 
   const tools = [
-    { id: TOOLS.PENCIL, Icon: FaPencilAlt },
-    { id: TOOLS.FILL,   Icon: VscPaintcan, flipIcon: true },
+    { id: TOOLS.PENCIL,       Icon: FaPencilAlt },
+    { id: TOOLS.FLOODFILL,    Icon: VscPaintcan, flipIcon: true },
   ];
 
   const divider = <hr className={styles.divider} />;
@@ -89,12 +89,12 @@ export function Toolbar() {
       <div className={styles['toolbar-section']}>
         <h3>Select Dimensions</h3>
         <DimensionSelector
-          title='Rows'
+          title='Height'
           value={rows}
           onChange={(newRows) => dispatch(setRows(newRows))}
         />
         <DimensionSelector
-          title='Columns'
+          title='Width'
           value={cols}
           onChange={(newCols) => dispatch(setCols(newCols))}
         />
