@@ -1,17 +1,32 @@
 .toolbar {
-  --toolbar-background: #D3D3D3;
+  --toolbar-background-color: var(--color-2);
+  --toolbar-text-color: var(--color-3);
+  --tool-icon-color: var(--color-4);
+  --tool-icon-size: 36px;
+  color: var(--toolbar-text-color);
   width: 20vw;
   min-width: 200px;
   padding: 20px 10px 20px 10px;
-  background-color: var(--toolbar-background);
+  background-color: var(--toolbar-background-color);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
 }
 
-.title {
+h1 {
   margin: 0;
+}
+
+h3 {
+  margin-top: 0;
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background-color: var(--toolbar-text-color);
 }
 
 .toolbar-section {
@@ -33,19 +48,36 @@
 }
 
 .tool-button {
+  color: var(--tool-icon-color);
   padding: 5px;
   border-radius: 5px;
-  border-width: 2px;
-  background-color: var(--toolbar-background);
+  /* Unselected tools should have no distinguishing border or background */
+  border: 2px solid var(--toolbar-background-color);
+  background-color: var(--toolbar-background-color);
+}
+
+.tool-button > svg {
+  width: var(--tool-icon-size);
+  height: var(--tool-icon-size);
 }
 
 .tool-button:disabled {
-  border: 2px solid #FFFFFF;
-  background-color: #FFFFFF;
+  /* The selected tool should have a distinguishing border & background */
+  border: 2px solid var(--tool-icon-color);
+  background-color: var(--color-5);
+}
+
+.tool-button:disabled > svg {
+  opacity: .5;
 }
 
 .dimension-selector {
   width: 100%;
   display: flex;
   justify-content: space-between;
+}
+
+.number-input {
+  color: var(--toolbar-text-color);
+  background-color: var(--color-5);
 }

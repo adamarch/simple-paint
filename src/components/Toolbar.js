@@ -19,18 +19,17 @@ import {
   selectCols,
 } from '../redux/paintSlice';
 
-const TOOL_BUTTON_SIZE = 40;
-
 function DimensionSelector({title, value, onChange}) {
   return (
     <div className={styles['dimension-selector']}>
       <span>{title}:</span>
       <NumericInput mobile
-        size={5}
+        className={styles['number-input']}
         value={value}
+        onChange={onChange}
+        size={5}
         min={1}
         max={100}
-        onChange={onChange}
       />
     </div>
   );
@@ -48,9 +47,12 @@ export function Toolbar() {
     { id: TOOLS.FILL,   Icon: VscPaintcan, flipIcon: true },
   ];
 
+  const divider = <hr className={styles.divider} />;
+
   return (
     <section className={styles.toolbar} id='toolbar' tabIndex={0}>
-      <h1 className={styles.title}>Simple Paint</h1>
+      <h1>Simple Paint</h1>
+      {divider}
 
       <div className={styles['toolbar-section']}>
         <h3>Select Tool</h3>
@@ -63,11 +65,12 @@ export function Toolbar() {
               disabled={selectedTool === id}
               onClick={() => dispatch(setTool(id))}
             >
-              <Icon size={TOOL_BUTTON_SIZE} style={flipIcon && {transform: 'scaleX(-1)'}} />
+              <Icon style={flipIcon && {transform: 'scaleX(-1)'}} />
             </button>
           )) }
         </div>
       </div>
+      {divider}
 
       <div className={styles['toolbar-section']}>
         <h3>Select Color</h3>
@@ -81,6 +84,7 @@ export function Toolbar() {
           ]}
         />
       </div>
+      {divider}
 
       <div className={styles['toolbar-section']}>
         <h3>Select Dimensions</h3>

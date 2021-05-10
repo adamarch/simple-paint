@@ -1,4 +1,11 @@
 .app {
+  /* Color palette from: https://www.color-hex.com/color-palette/109159 */
+  --color-1: #3BA5D9;
+  --color-2: #47F7F8;
+  --color-3: #190961;
+  --color-4: #6727F7;
+  --color-5: #F9F9F9;
+
   display: flex;
   height: 100vh;
 }
